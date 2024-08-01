@@ -1,6 +1,6 @@
 <div class="row align-items-center g-lg-5 pb-5">
     <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-3 p-md-3 border rounded-3 bg-body-tertiary">
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
             <div class="form-floating mb-1">
                 <input type="text" class="form-control" id="first-name" placeholder="Enter your first name"
                     autocomplete="name">
@@ -23,9 +23,25 @@
                     autocomplete="address-level2">
                 <label for="address">Address</label>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-1">
                 <input type="password" class="form-control" id="password" placeholder="Password">
                 <label for="password">Password</label>
+            </div>
+            <div class="form-floating mb-1">
+                <select class="form-select" id="department" aria-label="Default select example">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <label for="department">Department</label>
+            </div>
+            <div class="form-floating mb-3">
+                <select class="form-select" id="role" aria-label="Default select example">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <label for="role">Role</label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
             <hr class="my-4">
