@@ -4,15 +4,15 @@ import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
     {
-        path: "",
-        component: HeaderComponent
-    },
-    {
-        path: "home",
+        path: '',
         component: HomeComponent
     },
     {
-        path: "header",
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'header',
         component: HeaderComponent
     }
 ];
