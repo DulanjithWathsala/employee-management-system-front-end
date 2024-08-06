@@ -49,4 +49,9 @@ export class RegisterComponent implements OnInit {
 
     })
   }
+
+  public registerEmployee(): void {
+    console.log(this.registerForm);
+
+  }
 }
