@@ -4,6 +4,7 @@ import { registerService } from '../../services/register.service';
 import { Department } from '../../models/department.model';
 import { Role } from '../../models/role.model';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -51,7 +52,6 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerEmployee(): void {
-    console.log(this.registerForm);
-
+    Swal.fire("SweetAlert2 is working!");
   }
 }
