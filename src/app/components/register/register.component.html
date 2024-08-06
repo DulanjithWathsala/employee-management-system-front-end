@@ -8,36 +8,36 @@
     </div>
 
     <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+        <form [formGroup]="registerForm" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
             <div class="form-floating mb-1">
                 <input type="text" class="form-control" id="first-name" placeholder="Enter your first name"
-                    autocomplete="name">
+                    autocomplete="name" formControlName="firstName">
                 <label for="first-name">First Name</label>
             </div>
             <div class="form-floating mb-1">
-                <input type="text" class="form-control" id="last-name" placeholder="Enter your last name">
+                <input type="text" class="form-control" id="last-name" placeholder="Enter your last name"
+                    formControlName="lastName">
                 <label for="last-name">Last Name</label>
             </div>
             <div class="form-floating mb-1">
-                <input type="text" class="form-control" id="contact" placeholder="Your contact number">
+                <input type="text" class="form-control" id="contact" placeholder="Your contact number"
+                    formControlName="contactNo">
                 <label for="contact">Contact Number</label>
             </div>
             <div class="form-floating mb-1">
-                <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="email">
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="email"
+                    formControlName="email">
                 <label for="email">Email address</label>
             </div>
             <div class="form-floating mb-1">
                 <input type="text" class="form-control" id="address" placeholder="Your address"
-                    autocomplete="address-level2">
+                    autocomplete="address-level2" formControlName="address">
                 <label for="address">Address</label>
             </div>
             <div class="form-floating mb-1">
-                <input type="password" class="form-control" id="password" placeholder="Password">
-                <label for="password">Password</label>
-            </div>
-            <div class="form-floating mb-1">
-                <select class="form-select" id="department" aria-label="Default select example">
-                    <option selected disabled>Open this select menu</option>
+                <select class="form-select" id="department" aria-label="Default select example"
+                    formControlName="departmentId">
+                    <option selected disabled>Select department</option>
                     @for (department of departments; track department.id) {
                     <option>{{department.id}} - {{department.name}}</option>
                     }
@@ -45,8 +45,8 @@
                 <label for="department">Department</label>
             </div>
             <div class="form-floating mb-3">
-                <select class="form-select" id="role" aria-label="Default select example">
-                    <option selected disabled>Open this select menu</option>
+                <select class="form-select" id="role" aria-label="Default select example" formControlName="roleId">
+                    <option selected disabled>Select role</option>
                     @for (role of roles; track role.id) {
                     <option>{{role.id}} - {{role.name}}</option>
                     }

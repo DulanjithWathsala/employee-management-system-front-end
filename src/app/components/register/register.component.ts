@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { registerService } from '../../services/register.service';
 import { Department } from '../../models/department.model';
 import { Role } from '../../models/role.model';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -17,6 +18,16 @@ export class RegisterComponent implements OnInit {
   public roles: Role[] = [];
 
   constructor(private registerSerive: registerService) { }
+
+  public registerForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    contactNo: new FormControl(''),
+    email: new FormControl(''),
+    address: new FormControl(''),
+    departmentId: new FormControl(''),
+    roleId: new FormControl('')
+  });
 
   ngOnInit(): void {
     this.fetchDepartments();
