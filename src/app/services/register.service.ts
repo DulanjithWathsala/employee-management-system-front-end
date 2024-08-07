@@ -18,6 +18,6 @@ export class registerService {
     }
 
     public registerEmployee(employee: Employee): Observable<Employee> {
-        return this.http.post<Employee>('http://localhost:8080/role/all', employee);
+        return this.http.post<Employee>('http://localhost:8080/employee', employee);
     }
 }

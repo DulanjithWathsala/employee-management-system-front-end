@@ -57,7 +57,7 @@
                     formControlName="departmentId">
                     <option selected disabled>Select department</option>
                     @for (department of departments; track department.id) {
-                    <option>{{department.name}}</option>
+                    <option [value]="department.id">{{department.name}}</option>
                     }
                 </select>
                 <label for="department">Department</label>
@@ -66,12 +66,12 @@
                 <select class="form-select" id="role" aria-label="Default select example" formControlName="roleId">
                     <option selected disabled>Select role</option>
                     @for (role of roles; track role.id) {
-                    <option>{{role.name}}</option>
+                    <option [value]="role.id">{{role.name}}</option>
                     }
                 </select>
                 <label for="role">Role</label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="registerEmployee()">Register</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="register()">Register</button>
             <hr class="my-4">
             <small class="text-body-secondary">By clicking Register, you agree to the terms of use.</small>
         </form>

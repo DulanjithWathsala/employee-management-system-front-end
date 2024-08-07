@@ -6,6 +6,7 @@ import { Role } from '../../models/role.model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { NgIf } from '@angular/common';
+import { Employee } from '../../models/employee.model';
 
 @Component({
   selector: 'app-register',
@@ -63,9 +64,22 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  public registerEmployee(): void {
-    if (this.registerForm.status == 'VALID') {
-      console.log(this.registerForm);
+  public register(): void {
+    const formValue = this.registerForm.value;
+    if (this.registerForm.valid) {
+      const employee: Employee = {
+        firstName: formValue.firstName!, // Using Non-null assertion operator to tell Typescript to assume these properties will not be 'nul' or 'undefined'
+        lastName: formValue.lastName!,
+        contactNo: formValue.contactNo!,
+        email: formValue.email!,
+        address: formValue.address!,
+        departmentId: Number(formValue.departmentId),
+        roleId: Number(formValue.roleId)
+      }
+
+      this.registerSerive.registerEmployee(employee).subscribe(data => {
+        console.log(data);
+      })
     }
   }
 }

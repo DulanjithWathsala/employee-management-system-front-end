@@ -1,7 +1,6 @@
 
 
 export interface Employee {
-    id: Number;
     firstName: String;
     lastName: String;
     contactNo: String;
