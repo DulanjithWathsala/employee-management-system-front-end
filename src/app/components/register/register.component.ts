@@ -64,8 +64,9 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerEmployee(): void {
-    Swal.fire("SweetAlert2 is working!");
     console.log(this.registerForm);
 
+    if (this.registerForm.status == 'VALID') {
+    }
   }
 }
