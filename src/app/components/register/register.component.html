@@ -13,26 +13,44 @@
                 <input type="text" class="form-control" id="first-name" placeholder="Enter your first name"
                     autocomplete="name" formControlName="firstName">
                 <label for="first-name">First Name</label>
+                <p *ngIf="registerForm.controls.firstName.touched && registerForm.controls.firstName.hasError('required')"
+                    class="d-flex justify-content-center text-danger">
+                    First name must be provided</p>
             </div>
             <div class="form-floating mb-1">
                 <input type="text" class="form-control" id="last-name" placeholder="Enter your last name"
                     formControlName="lastName">
                 <label for="last-name">Last Name</label>
+                <p *ngIf="registerForm.controls.lastName.touched && registerForm.controls.lastName.hasError('required')"
+                    class="d-flex justify-content-center text-danger">
+                    Last name must be provided</p>
             </div>
             <div class="form-floating mb-1">
                 <input type="text" class="form-control" id="contact" placeholder="Your contact number"
                     formControlName="contactNo">
                 <label for="contact">Contact Number</label>
+                <p *ngIf="registerForm.controls.contactNo.touched && registerForm.controls.contactNo.hasError('required')"
+                    class="d-flex justify-content-center text-danger">
+                    Contact number must be provided</p>
             </div>
             <div class="form-floating mb-1">
                 <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="email"
                     formControlName="email">
                 <label for="email">Email address</label>
+                <p *ngIf="registerForm.controls.email.touched && registerForm.controls.email.hasError('required')"
+                    class="d-flex justify-content-center text-danger">
+                    Email must be provided</p>
+                <p *ngIf="registerForm.controls.email.touched && registerForm.controls.email.hasError('email')"
+                    class="d-flex justify-content-center text-danger">
+                    Enter a valid email address</p>
             </div>
             <div class="form-floating mb-1">
                 <input type="text" class="form-control" id="address" placeholder="Your address"
                     autocomplete="address-level2" formControlName="address">
                 <label for="address">Address</label>
+                <p *ngIf="registerForm.controls.address.touched && registerForm.controls.address.hasError('required')"
+                    class="d-flex justify-content-center text-danger">
+                    Address must be provided</p>
             </div>
             <div class="form-floating mb-1">
                 <select class="form-select" id="department" aria-label="Default select example"

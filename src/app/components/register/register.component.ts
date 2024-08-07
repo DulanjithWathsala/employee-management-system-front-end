@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { registerService } from '../../services/register.service';
 import { Department } from '../../models/department.model';
 import { Role } from '../../models/role.model';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -21,13 +22,28 @@ export class RegisterComponent implements OnInit {
   constructor(private registerSerive: registerService) { }
 
   public registerForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    contactNo: new FormControl(''),
-    email: new FormControl(''),
-    address: new FormControl(''),
-    departmentId: new FormControl(''),
-    roleId: new FormControl('')
+    firstName: new FormControl('', [
+      Validators.required
+    ]),
+    lastName: new FormControl('', [
+      Validators.required
+    ]),
+    contactNo: new FormControl('', [
+      Validators.required
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ]),
+    address: new FormControl('', [
+      Validators.required
+    ]),
+    departmentId: new FormControl('', [
+      Validators.required
+    ]),
+    roleId: new FormControl('', [
+      Validators.required
+    ])
   });
 
   ngOnInit(): void {
@@ -38,20 +54,18 @@ export class RegisterComponent implements OnInit {
   private fetchDepartments(): void {
     this.registerSerive.retrieveDepartments().subscribe((data: Department[]) => {
       this.departments = data;
-      console.log(this.departments);
-
     })
   }
 
   private fetchRoles(): void {
     this.registerSerive.retrieveRoles().subscribe((data: Role[]) => {
       this.roles = data;
-      console.log(this.roles);
-
     })
   }
 
   public registerEmployee(): void {
     Swal.fire("SweetAlert2 is working!");
+    console.log(this.registerForm);
+
   }
 }

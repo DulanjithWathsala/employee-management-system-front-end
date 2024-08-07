@@ -3,10 +3,10 @@ import { Injectable } from "@angular/core";
 import { Department } from "../models/department.model";
 import { Observable } from "rxjs";
 import { Role } from "../models/role.model";
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Injectable({ providedIn: 'root' })
 export class registerService {
-
     constructor(private http: HttpClient) { }
 
     public retrieveDepartments(): Observable<Department[]> {
