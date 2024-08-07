@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Department } from "../models/department.model";
 import { Observable } from "rxjs";
 import { Role } from "../models/role.model";
-import { FormGroup, FormControl } from "@angular/forms";
+import { Employee } from "../models/employee.model";
 
 @Injectable({ providedIn: 'root' })
 export class registerService {
@@ -15,5 +15,9 @@ export class registerService {
 
     public retrieveRoles(): Observable<Role[]> {
         return this.http.get<Role[]>('http://localhost:8080/role/all');
+    }
+
+    public registerEmployee(employee: Employee): Observable<Employee> {
+        return this.http.post<Employee>('http://localhost:8080/role/all', employee);
     }
 }

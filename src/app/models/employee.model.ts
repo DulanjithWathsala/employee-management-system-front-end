@@ -1,6 +1,6 @@
 
 
-export interface employee {
+export interface Employee {
     id: Number;
     firstName: String;
     lastName: String;

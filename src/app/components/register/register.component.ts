@@ -64,9 +64,8 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerEmployee(): void {
-    console.log(this.registerForm);
-
     if (this.registerForm.status == 'VALID') {
+      console.log(this.registerForm);
     }
   }
 }
