@@ -64,11 +64,24 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  private clearForm(): void {
+    this.registerForm.reset();
+  }
+
   public register(): void {
     const formValue = this.registerForm.value;
+
+    if (this.registerForm.invalid) {
+      Swal.fire({
+        title: "Try Again!",
+        text: "Text fields can't be empty",
+        icon: "warning"
+      });
+    }
+
     if (this.registerForm.valid) {
       const employee: Employee = {
-        firstName: formValue.firstName!, // Using Non-null assertion operator to tell Typescript to assume these properties will not be 'nul' or 'undefined'
+        firstName: formValue.firstName!, // Using Non-null assertion operator to tell Typescript to assume these properties will not be 'null' or 'undefined'
         lastName: formValue.lastName!,
         contactNo: formValue.contactNo!,
         email: formValue.email!,
@@ -79,6 +92,16 @@ export class RegisterComponent implements OnInit {
 
       this.registerSerive.registerEmployee(employee).subscribe(data => {
         console.log(data);
+
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Employee Saved Successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+
+        this.clearForm();
       })
     }
   }
