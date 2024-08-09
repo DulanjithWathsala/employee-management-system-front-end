@@ -11,7 +11,7 @@ import { Employee } from '../../models/employee.model';
 })
 export class ManageComponent implements OnInit {
 
-  private employees: Employee[] = [];
+  public employees: Employee[] = [];
 
   constructor(private manageService: ManageService) { }
 
