@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { registerService } from '../../services/register.service';
+import { RegisterService } from '../../services/register.service';
 import { Department } from '../../models/department.model';
 import { Role } from '../../models/role.model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   public departments: Department[] = [];
   public roles: Role[] = [];
 
-  constructor(private registerSerive: registerService) { }
+  constructor(private registerSerive: RegisterService) { }
 
   public registerForm = new FormGroup({
     firstName: new FormControl('', [

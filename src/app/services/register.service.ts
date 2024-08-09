@@ -6,7 +6,7 @@ import { Role } from "../models/role.model";
 import { Employee } from "../models/employee.model";
 
 @Injectable({ providedIn: 'root' })
-export class registerService {
+export class RegisterService {
     constructor(private http: HttpClient) { }
 
     public retrieveDepartments(): Observable<Department[]> {
