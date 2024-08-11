@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManageService } from '../../services/manage.service';
 import { Employee } from '../../models/employee.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manage',
@@ -12,6 +13,15 @@ import { Employee } from '../../models/employee.model';
 export class ManageComponent implements OnInit {
 
   public employees: Employee[] = [];
+  public selectedEmployee: Employee = {
+    firstName: "",
+    lastName: "",
+    contactNo: "",
+    email: "",
+    address: "",
+    departmentId: 0,
+    roleId: 0
+  };
 
   constructor(private manageService: ManageService) { }
 
@@ -23,5 +33,9 @@ export class ManageComponent implements OnInit {
     this.manageService.retrieveEmployees().subscribe((data: Employee[]) => {
       this.employees = data;
     })
+  }
+
+  public updateEmployee(employee: Employee) {
+    this.selectedEmployee = employee;
   }
 }
