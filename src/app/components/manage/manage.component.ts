@@ -14,6 +14,7 @@ export class ManageComponent implements OnInit {
 
   public employees: Employee[] = [];
   public selectedEmployee: Employee = {
+    id: 0,
     firstName: "",
     lastName: "",
     contactNo: "",
@@ -37,5 +38,33 @@ export class ManageComponent implements OnInit {
 
   public updateEmployee(employee: Employee) {
     this.selectedEmployee = employee;
+  }
+
+  public deleteEmployee(id: Number) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.manageService.deleteEmployee(id).subscribe(data => {
+          console.log(data);
+
+          Swal.fire({
+            title: "Deleted!",
+            text: "Employee has been deleted.",
+            icon: "success"
+          });
+
+          this.retriveAllEmployees();
+        })
+      }
+    });
+
+
   }
 }

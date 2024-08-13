@@ -26,7 +26,8 @@
             <td>
                 <button class="btn btn-info me-3" (click)="updateEmployee(employee)" data-bs-toggle="modal"
                     data-bs-target="#updateEmployeeModel"><i class="bi bi-pencil-square"></i></button>
-                <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                <button class="btn btn-danger" (click)="deleteEmployee(employee.id)"><i
+                        class="bi bi-trash"></i></button>
             </td>
         </tr>
         }

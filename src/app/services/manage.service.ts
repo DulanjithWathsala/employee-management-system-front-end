@@ -10,4 +10,8 @@ export class ManageService {
     public retrieveEmployees(): Observable<Employee[]> {
         return this.http.get<Employee[]>('http://localhost:8080/employee/all');
     }
+
+    public deleteEmployee(id: Number): Observable<any> {
+        return this.http.delete<any>(`http://localhost:8080/employee/${id}`);
+    }
 }

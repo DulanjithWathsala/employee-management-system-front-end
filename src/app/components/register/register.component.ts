@@ -81,6 +81,7 @@ export class RegisterComponent implements OnInit {
 
     if (this.registerForm.valid) {
       const employee: Employee = {
+        id: 0,
         firstName: formValue.firstName!, // Using Non-null assertion operator to tell Typescript to assume these properties will not be 'null' or 'undefined'
         lastName: formValue.lastName!,
         contactNo: formValue.contactNo!,
