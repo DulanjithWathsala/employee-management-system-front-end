@@ -91,16 +91,26 @@ export class RegisterComponent implements OnInit {
         roleId: Number(formValue.roleId)
       }
 
-      this.registerSerive.registerEmployee(employee).subscribe(data => {
+      this.registerSerive.registerEmployee(employee).subscribe((data: any) => {
         console.log(data);
 
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Employee Saved Successfully",
-          showConfirmButton: false,
-          timer: 1500
-        });
+        if (data.status == 'failed') {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: `${data.errorMessage}`,
+            showConfirmButton: false,
+            timer: 1500
+          });
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Employee Saved Successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
 
         this.clearForm();
       })
