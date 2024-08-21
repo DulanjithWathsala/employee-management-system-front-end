@@ -3,6 +3,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ManageComponent } from './components/manage/manage.component';
+import { AboutComponent } from './components/about/about.component';
 
 export const routes: Routes = [
     {
@@ -24,5 +25,9 @@ export const routes: Routes = [
     {
         path: 'manage',
         component: ManageComponent
+    },
+    {
+        path: 'about',
+        component: AboutComponent
     }
 ];
